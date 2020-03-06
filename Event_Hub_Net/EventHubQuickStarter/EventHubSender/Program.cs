@@ -18,10 +18,10 @@ namespace EventHubSender
             
         
             //Setando as variaveis de ambiente
-            System.Environment.SetEnvironmentVariable("blobStorageConnectionString","DefaultEndpointsProtocol=https;AccountName=augustofunction;AccountKey=agw1AaIlqCOw7SgC0mYRW51GQvbCgfCUJyB8upSKlDoaTDIET1T6JZVU41HcGno7FjDYqNpxaTIJxMbe8zETrw==;EndpointSuffix=core.windows.net");
-            System.Environment.SetEnvironmentVariable("blobContainerName","eventhubexample");
-            System.Environment.SetEnvironmentVariable("connectionStringHub", "Endpoint=sb://myenvent.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=hnuuk+GaadZOth+bnuJoY/AOYB18XBpR+FR6sKDAC3I=");
-            System.Environment.SetEnvironmentVariable("eventHub","mainhub");
+            System.Environment.SetEnvironmentVariable("blobStorageConnectionString","");
+            System.Environment.SetEnvironmentVariable("blobContainerName","");
+            System.Environment.SetEnvironmentVariable("connectionStringHub", "");
+            System.Environment.SetEnvironmentVariable("eventHub","");
 
             String Option = "";
             Console.WriteLine("----------------------------------------------------------");
