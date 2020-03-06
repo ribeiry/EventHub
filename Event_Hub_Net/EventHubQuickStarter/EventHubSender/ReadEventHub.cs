@@ -25,18 +25,23 @@ namespace EventHubSender
         {
                 string consumeGroup = EventHubConsumerClient.DefaultConsumerGroupName;
 
+                //Criando a conexão de storage
                 BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString,blobContainerName);
 
-
+                //Criando a conexão com o eventProcessor
                 EventProcessorClient eventProcessor = new EventProcessorClient(storageClient, consumeGroup, connectionString, eventHub);
 
+                //Registro de Erro de processo
                 eventProcessor.ProcessEventAsync += ProcessEventHandler;
                 eventProcessor.ProcessErrorAsync += ProcessErrorHandler;
 
+                //Iniciando o processo de leitura
                 await eventProcessor.StartProcessingAsync();
 
+                //segurando a task por 10 segundos para o processo iniciar
                 await Task.Delay(TimeSpan.FromSeconds(10));
 
+                //Parando o processo
                 await eventProcessor.StopProcessingAsync();
 
 
